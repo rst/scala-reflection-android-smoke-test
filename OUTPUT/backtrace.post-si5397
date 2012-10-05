@@ -1,0 +1,64 @@
+I/ActivityManager(   96): Starting: Intent { act=android.intent.action.MAIN flg=0x10000000 cmp=rst.reflection_test/.MainActivity } from pid 4435
+D/AndroidRuntime( 4435): Shutting down VM
+I/ActivityManager(   96): Start proc rst.reflection_test for activity rst.reflection_test/.MainActivity: pid=4443 uid=10077 gids={}
+D/dalvikvm( 4435): GC_CONCURRENT freed 100K, 69% free 318K/1024K, external 0K/0K, paused 0ms+0ms
+D/jdwp    ( 4435): adbd disconnected
+I/AndroidRuntime( 4435): NOTE: attach of thread 'Binder Thread #3' failed
+V/RenderScript_jni(  190): surfaceDestroyed
+W/ActivityManager(   96): Activity pause timeout for HistoryRecord{405349a0 rst.reflection_test/.MainActivity}
+D/dalvikvm( 4443): GC_CONCURRENT freed 761K, 48% free 3532K/6727K, external 1625K/2137K, paused 2ms+3ms
+I/dalvikvm( 4443): threadid=1: stack overflow on call to Lscala/reflect/internal/SymbolTable;.chrs:L
+I/dalvikvm( 4443):   method requires 8+20+0=28 bytes, fp is 0x4214a304 (4 left)
+I/dalvikvm( 4443):   expanding stack end (0x4214a300 to 0x4214a000)
+I/dalvikvm( 4443): Shrank stack (to 0x4214a300, curFrame is 0x4214a408)
+D/AndroidRuntime( 4443): Shutting down VM
+W/dalvikvm( 4443): threadid=1: thread exiting with uncaught exception (group=0x40015560)
+D/dalvikvm( 4443): GC_FOR_MALLOC freed 445K, 46% free 3724K/6791K, external 1625K/2137K, paused 24ms
+E/AndroidRuntime( 4443): FATAL EXCEPTION: main
+E/AndroidRuntime( 4443): java.lang.StackOverflowError
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Names$class.equals(Names.scala:59)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Names$class.newTermName(Names.scala:95)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.SymbolTable.newTermName(SymbolTable.scala:12)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Names$class.newTermName(Names.scala:113)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.scala$reflect$runtime$SynchronizedOps$$super$newTermName(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.SynchronizedOps$class.newTermName(SynchronizedOps.scala:13)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.newTermName(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Names$class.newTypeName(Names.scala:116)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.scala$reflect$runtime$SynchronizedOps$$super$newTypeName(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.SynchronizedOps$class.newTypeName(SynchronizedOps.scala:14)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.newTypeName(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Symbols$Symbol.newSyntheticTypeParam(Symbols.scala:324)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.specialPolyClass(Definitions.scala:1058)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.JavaRepeatedParamClass$lzycompute(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.JavaRepeatedParamClass(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.magicSymbols$lzycompute(Definitions.scala:1093)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.magicSymbols(Definitions.scala:1090)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaMirrors$class.scala$reflect$runtime$JavaMirrors$$magicClasses(JavaMirrors.scala:1188)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.scala$reflect$runtime$JavaMirrors$$magicClasses$lzycompute(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.scala$reflect$runtime$JavaMirrors$$magicClasses(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaMirrors$class.missingHook(JavaMirrors.scala:1207)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.missingHook(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.universeMissingHook(Mirrors.scala:73)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase$$anonfun$missingHook$1.apply(Mirrors.scala:75)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase$$anonfun$missingHook$1.apply(Mirrors.scala:75)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Symbols$Symbol.orElse(Symbols.scala:2086)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.missingHook(Mirrors.scala:75)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.getModuleOrClass(Mirrors.scala:44)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.getModuleOrClass(Mirrors.scala:57)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.getClassByName(Mirrors.scala:95)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Mirrors$RootsBase.getRequiredClass(Mirrors.scala:98)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.ArrayClass$lzycompute(Definitions.scala:442)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.ArrayClass(Definitions.scala:442)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.arrayType(Definitions.scala:674)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass$$anonfun$JavaRepeatedParamClass$1.apply(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass$$anonfun$JavaRepeatedParamClass$1.apply(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.specialPolyClass(Definitions.scala:1059)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.JavaRepeatedParamClass$lzycompute(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.JavaRepeatedParamClass(Definitions.scala:376)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.magicSymbols$lzycompute(Definitions.scala:1093)
+E/AndroidRuntime( 4443): 	at scala.reflect.internal.Definitions$DefinitionsClass.magicSymbols(Definitions.scala:1090)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaMirrors$class.scala$reflect$runtime$JavaMirrors$$magicClasses(JavaMirrors.scala:1188)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniverse.scala$reflect$runtime$JavaMirrors$$magicClasses$lzycompute(JavaUniverse.scala:9)
+E/AndroidRuntime( 4443): 	at scala.reflect.runtime.JavaUniv
+D/dalvikvm( 4443): GC_FOR_MALLOC freed 597K, 48% free 3735K/7047K, external 1625K/2137K, paused 25ms
+W/ActivityManager(   96):   Force finishing activity rst.reflection_test/.MainActivity
