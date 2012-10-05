@@ -12,8 +12,12 @@ object General {
     platformName in Android := "android-10"
   )
 
+  // Oddball proguardOption to work around issue SI-5397
+
   val proguardSettings = Seq (
-    useProguard in Android := true
+    useProguard in Android := true,
+    proguardOption in Android := 
+      "-keep class scala.collection.SeqLike { public protected *; }"
   )
 
   lazy val fullAndroidSettings =
