@@ -29,7 +29,7 @@ object General {
 
 object AndroidBuild extends Build {
   lazy val main = Project (
-    "Scala Reflection Smoke Test",
+    "smoketest",
     file("."),
     settings = General.fullAndroidSettings
   )
