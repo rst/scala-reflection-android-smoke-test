@@ -8,7 +8,7 @@ object General {
     name := "Scala Reflection Smoke Test",
     version := "0.1",
     versionCode := 0,
-    scalaVersion := "2.10.0-M7",
+    scalaVersion := "2.10.0-RC1",
     platformName in Android := "android-10"
   )
 
@@ -27,7 +27,8 @@ object General {
     proguardSettings ++
     AndroidManifestGenerator.settings ++
     AndroidMarketPublish.settings ++ Seq (
-      keyalias in Android := "change-me"
+      keyalias in Android := "change-me",
+      libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.10.0-RC1"
     )
 }
 
