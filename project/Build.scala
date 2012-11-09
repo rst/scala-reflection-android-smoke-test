@@ -26,8 +26,35 @@ object General {
     TypedResources.settings ++
     proguardSettings ++
     AndroidManifestGenerator.settings ++
-    AndroidMarketPublish.settings ++ Seq (
+    AndroidMarketPublish.settings ++ 
+    Seq (
       keyalias in Android := "change-me",
+      proguardOption in Android := """
+        -keep class scala.collection.SeqLike { public protected *; }
+        -keepclassmembers class * {
+           ** ctl;
+           ** parkBlocker;
+           ** runState;
+           ** head;
+           ** tail;
+           ** sweepVotes;
+           ** item;
+           ** next;
+           ** waiter;
+           ** MODULE$;
+           ** bytes();
+        }
+        -keep class scala.*
+        -keep class scala.reflect.internal.Types
+        -keep class scala.reflect.internal.Symbols
+        -keep class scala.reflect.ScalaSignature
+        -keep class scala.reflect.api.Mirror
+        -keep class scala.Function1
+        -keep class scala.Function2
+        -keep class scala.collection.GenSeq
+        -keep class scala.collection.generic.CanBuildFrom
+        -keep class scala.math.Ordering
+      """,
       libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.10.0-RC1"
     )
 }
