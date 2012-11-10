@@ -12,19 +12,10 @@ object General {
     platformName in Android := "android-10"
   )
 
-  // Oddball proguardOption to work around issue SI-5397
-
-  val proguardSettings = Seq (
-    useProguard in Android := true,
-    proguardOption in Android := 
-      "-keep class scala.collection.SeqLike { public protected *; }"
-  )
-
   lazy val fullAndroidSettings =
     General.settings ++
     AndroidProject.androidSettings ++
     TypedResources.settings ++
-    proguardSettings ++
     AndroidManifestGenerator.settings ++
     AndroidMarketPublish.settings ++ 
     Seq (
@@ -32,28 +23,22 @@ object General {
       proguardOption in Android := """
         -keep class scala.collection.SeqLike { public protected *; }
         -keepclassmembers class * {
-           ** ctl;
-           ** parkBlocker;
-           ** runState;
-           ** head;
-           ** tail;
-           ** sweepVotes;
            ** item;
-           ** next;
-           ** waiter;
-           ** MODULE$;
            ** bytes();
         }
-        -keep class scala.*
-        -keep class scala.reflect.internal.Types
-        -keep class scala.reflect.internal.Symbols
+        -keep class scala.AnyVal
+        -keep class scala.Array
+        -keep class scala.Boolean
+        -keep class scala.Byte
+        -keep class scala.Char
+        -keep class scala.Double
+        -keep class scala.Float
+        -keep class scala.Int
+        -keep class scala.Long
+        -keep class scala.Short
+        -keep class scala.Unit
         -keep class scala.reflect.ScalaSignature
         -keep class scala.reflect.api.Mirror
-        -keep class scala.Function1
-        -keep class scala.Function2
-        -keep class scala.collection.GenSeq
-        -keep class scala.collection.generic.CanBuildFrom
-        -keep class scala.math.Ordering
       """,
       libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.10.0-RC1"
     )
@@ -65,14 +50,4 @@ object AndroidBuild extends Build {
     file("."),
     settings = General.fullAndroidSettings
   )
-
-  lazy val tests = Project (
-    "tests",
-    file("tests"),
-    settings = General.settings ++
-               AndroidTest.androidSettings ++
-               General.proguardSettings ++ Seq (
-      name := "Scala Reflection Smoke TestTests"
-    )
-  ) dependsOn main
 }
